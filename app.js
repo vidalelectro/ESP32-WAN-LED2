@@ -37,11 +37,11 @@ const firebaseConfig = {
   const badge = document.getElementById("statusBadge");
 
   const gpioButtons = {
-    state: document.getElementById("gpio1Btn"),
+    gpio1: document.getElementById("gpio1Btn"),
   };
 
   const gpioLabels = {
-    state: document.getElementById("gpio1Status"),
+    gpio1: document.getElementById("gpio1Status"),
   };
 
   // Login
@@ -60,7 +60,7 @@ const firebaseConfig = {
 
   logoutBtn.onclick = () => signOut(auth);
 
-  // Auth state monitor
+  // Auth gpio1 monitor
   onAuthStateChanged(auth, (user) => {
     if (user) {
       authBox.style.display = "none";
@@ -78,7 +78,7 @@ const firebaseConfig = {
 
   // Listen to DB
   function startListeners() {
-    ["/led/state"].forEach((key) => {
+    ["/led/gpio1"].forEach((key) => {
       onValue(ref(db, "/" + key), (snapshot) => {
         let value = snapshot.val() ? 1 : 0;
         updateUI(key, value);

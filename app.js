@@ -37,11 +37,11 @@ const firebaseConfig = {
   const badge = document.getElementById("statusBadge");
 
   const gpioButtons = {
-    gpio1: document.getElementById("gpio1Btn"),
+    state: document.getElementById("gpio1Btn"),
   };
 
   const gpioLabels = {
-    gpio1: document.getElementById("gpio1Status"),
+    state: document.getElementById("gpio1Status"),
   };
 
   // Login
